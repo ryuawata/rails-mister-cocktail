@@ -1,0 +1,31 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to cocktails_path, class: "nav-link" do %>
+  <i class="fas fa-caret-left" style="color:grey"> Back to Cocktails</i>
+  <% end %>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+  </div>
+</div>
+<div class="cocktail-card">
+<div>
+  <img src="https://source.unsplash.com/random"/>
+</div>
+<div class="cocktail-card-infos">
+  <h2><%= @cocktail.name %></h2>
+  <% @cocktail.doses.each do |d| %>
+  <div class="doses">
+    <div><i class="fa fa-glass"></i> <strong> <%= d.ingredient.name %> </strong></div>
+    <div><p><%= d.description %></p></div>
+    <div>
+      <%= link_to dose_path(d), method: :delete do %>
+      <i class="fas fa-times" style="color:grey"></i>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <div>
+    <%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-secondary" %>
+  </div>
+</div>
+</div>

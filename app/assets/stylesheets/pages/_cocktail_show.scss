@@ -1,0 +1,28 @@
+.cocktail-card {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+}
+
+.cocktail-card-infos {
+	display: flex;
+	flex-direction: column;
+	margin: 32px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cocktail-card img {
+	display: flex;
+     max-width: 640px;
+     max-height: 500px;;
+     align-items: center;
+     background-position: 50% 50%;
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+.doses {
+	display: flex;
+	justify-content: start;
+}
