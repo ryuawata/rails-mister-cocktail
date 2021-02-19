@@ -2,14 +2,31 @@
   <%= link_to cocktails_path, class: "nav-link" do %>
   <i class="fas fa-caret-left" style="color:grey"> Back to Cocktails</i>
   <% end %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    </ul>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @cocktails.each do |c|  %>
+    <div class="carousel-item active">
+      <img class="d-block w-500" src="..." alt="First slide" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path c.photo.key, height: 50, width: 50, crop: :fill %>')">
+    </div>
+    <% end %>
   </div>
+
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
 </div>
 <div class="cocktail-card">
-<div>
-  <img src="https://source.unsplash.com/random"/>
+<div class="show-img">
+  <%= cl_image_tag @cocktail.photo.key, width: 650, crop: :fill %>
 </div>
 <div class="cocktail-card-infos">
   <h2><%= @cocktail.name %></h2>
